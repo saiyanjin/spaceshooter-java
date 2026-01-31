@@ -49,7 +49,7 @@ public class Particle {
         
         
         gl.glBegin(GL2.GL_QUADS);
-        gl.glColor4f(r, g, b, life); // Utiliser life pour la transparence
+        gl.glColor4f(r, g, b, life); 
         
         // avant
         gl.glVertex3f(-size, -size, size);
