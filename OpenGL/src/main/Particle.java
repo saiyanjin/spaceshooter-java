@@ -4,7 +4,7 @@ import com.jogamp.opengl.GL2;
 
 public class Particle {
     private float x, y, z;
-    private float vx, vy, vz; // Vélocité
+    private float vx, vy, vz; // vélocité
     private float r, g, b;
     private float life;
     private float size;
@@ -27,15 +27,14 @@ public class Particle {
     public void update() {
         if (!active) return;
         
-        // Mise à jour de la position
+        // maj pos
         x += vx;
         y += vy;
         z += vz;
         
-        // Gravité
+        // gravité
         vy -= 0.005f;
         
-        // Diminution de la vie
         life -= 0.02f;
         if (life <= 0) {
             active = false;
@@ -48,17 +47,17 @@ public class Particle {
         gl.glPushMatrix();
         gl.glTranslatef(x, y, z);
         
-        // Particule carrée
+        
         gl.glBegin(GL2.GL_QUADS);
         gl.glColor4f(r, g, b, life); // Utiliser life pour la transparence
         
-        // Face avant
+        // avant
         gl.glVertex3f(-size, -size, size);
         gl.glVertex3f(size, -size, size);
         gl.glVertex3f(size, size, size);
         gl.glVertex3f(-size, size, size);
         
-        // Face arrière
+        // arrière
         gl.glVertex3f(-size, -size, -size);
         gl.glVertex3f(-size, size, -size);
         gl.glVertex3f(size, size, -size);
